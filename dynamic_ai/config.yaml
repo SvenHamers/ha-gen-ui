@@ -1,0 +1,70 @@
+name: Dynamic AI
+version: "0.1.0"
+slug: dynamic_ai
+description: >-
+  Your own Claude/ChatGPT inside Home Assistant — chat, see your data as charts,
+  control devices with live feedback, and talk to it hands-free.
+url: https://github.com/SvenHamers/ha-gen-ui/tree/main/dynamic_ai
+arch:
+  - aarch64
+  - amd64
+  - armv7
+init: false
+startup: application
+boot: auto
+ingress: true
+ingress_port: 8099
+panel_icon: mdi:robot-happy
+panel_title: Dynamic AI
+hassio_api: true
+homeassistant_api: true
+auth_api: true
+host_network: false
+ports:
+  "8099/tcp": null
+ports_description:
+  "8099/tcp": >-
+    Optional DIRECT browser access at http://<ha-host>:<port>, bypassing the Home Assistant
+    login — handy for opening Dynamic AI as a standalone page or bookmarking it. Leave unset to
+    stay ingress-only (recommended). It is plain HTTP, so the microphone (voice) will not work
+    here — put TLS in front for that. Anyone who can reach this port can use the assistant and
+    control your home, so only enable it on a trusted network.
+options:
+  openai_api_key: ""
+  anthropic_api_key: ""
+  default_text_provider: openai
+  voice_model: gpt-realtime-2
+  voice_name: marin
+  language: ""
+  allowed_domains:
+    - light
+    - switch
+    - fan
+    - cover
+    - scene
+    - script
+    - media_player
+    - climate
+    - input_boolean
+    - automation
+  confirm_domains:
+    - lock
+    - alarm_control_panel
+    - cover
+    - climate
+  expose_mode: all
+  exposed_entities: []
+schema:
+  openai_api_key: password?
+  anthropic_api_key: password?
+  default_text_provider: list(openai|anthropic)
+  voice_model: str?
+  voice_name: str?
+  language: str?
+  allowed_domains:
+    - str
+  confirm_domains:
+    - str
+  expose_mode: list(all|list)
+  exposed_entities:
+    - str

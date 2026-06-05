@@ -1,0 +1,27 @@
+{
+  "name": "dynamic-ai-ha",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Dynamic AI for Home Assistant — a Claude/ChatGPT-style assistant that sees your home (charts), controls it (with feedback), and talks hands-free.",
+  "type": "module",
+  "workspaces": [
+    "shared",
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,web -c blue,magenta \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:https": "HTTPS=1 npm run dev",
+    "dev:server": "npm run dev -w @dyn/server",
+    "dev:web": "npm run dev -w @dyn/web",
+    "build": "npm run build -w @dyn/web",
+    "start": "npm run start -w @dyn/server",
+    "typecheck": "npm run typecheck -w @dyn/server && npm run typecheck -w @dyn/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
