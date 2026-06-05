@@ -122,7 +122,3 @@ The AI can control your home, so by default sensitive domains (`lock`,
 allow-list of what it may touch at all. The generative UI can only reference **named
 actions** (never raw code), so every action still flows through this safety layer.
 See [`PLAN.md`](./PLAN.md) §7.
-
-## License
-
-MIT

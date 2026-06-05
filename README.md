@@ -26,7 +26,3 @@ from **Settings → Add-ons → Local add-ons**.
 
 The add-on builds itself on install (it pulls Node + dependencies and builds the UI), so the first
 start can take a few minutes — especially on a Raspberry Pi.
-
-## License
-
-MIT
